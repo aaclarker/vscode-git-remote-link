@@ -1,0 +1,40 @@
+{
+  "name": "git-remote-link",
+  "displayName": "Git Remote Link",
+  "description": "Open or copy a GitHub/GitLab commit permalink to the current line.",
+  "version": "0.2.0",
+  "publisher": "aaclarker",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitRemoteLink.open",
+        "title": "Open in remote",
+        "category": "Git"
+      },
+      {
+        "command": "gitRemoteLink.copy",
+        "title": "Copy remote permalink",
+        "category": "Git"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "gitRemoteLink.open",
+          "when": "resourceScheme == file",
+          "group": "navigation@100"
+        },
+        {
+          "command": "gitRemoteLink.copy",
+          "when": "resourceScheme == file",
+          "group": "navigation@101"
+        }
+      ]
+    }
+  }
+}
